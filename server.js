@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 //point our server as specific locations to access the urls
-//require("./app/routing/apiRoutes")(app);
+require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
 
