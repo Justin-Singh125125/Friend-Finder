@@ -35,6 +35,7 @@
     #survey{
         background:#30302e;
         color: white;
+        padding: 20px;
     
         transition: .7s;
     }
@@ -48,6 +49,9 @@
     .far{
    color: red;
     }
+    h3{
+        margin: 0;
+    }
 
 </style>
 
@@ -58,9 +62,12 @@
             <h1 id="header"> <i id="address" class="fa fa-address-card" aria-hidden="true"></i> Friend Finder</h1>
             <h2>Looking for a friend or significant other?</h2>
             <h2>Go to the survey and answer all the questions to find your perfect match!</h2>
-            <button id="survey" type="button" class="btn btn-dark">
-                <h3><i class="far fa-heart"></i> Go to Survey</h3>
-            </button>
+
+            <a href="/survey">
+                <button id="survey" type="button" class="btn btn-dark">
+                    <h3><i class="far fa-heart"></i> Go to Survey</h3>
+                </button>
+            </a>
         </div>
 
     </div>
