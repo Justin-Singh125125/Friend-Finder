@@ -8,6 +8,11 @@ var friends = [
         name: "Jenna",
         photo: "https://i.ytimg.com/vi/kYnx7nPw-xo/maxresdefault.jpg",
         scores: [1, 5, 3, 2, 3, 1, 2, 3, 4, 4]
+    },
+    {
+        name: "test",
+        photo: "https://www.compasspoint.org/sites/default/files/images/test.png",
+        scores: [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
     }
 ];
 

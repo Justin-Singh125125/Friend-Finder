@@ -19,6 +19,8 @@ module.exports = function (app) {
         //a nested for loop to check all array and scores
 
         for (var i = 0; i < friendsData.length; i++) {
+
+            totalDifference = 0;
             for (var j = 0; j < friendsData[i].scores.length; j++) {
                 if (compareUser.scores[j] != friendsData[i].scores[j]) {
                     //subtracts the two scores from each index and stores in temp so we can check for negative values
@@ -30,20 +32,29 @@ module.exports = function (app) {
                     //add temp to total difference
                     totalDifference += temp;
                 }
-                //first time around, set set the first i(0) to the lowestDifference and current match index
-                if (isFirst) {
-                    lowestDifference = totalDifference;
-                    currentMatchIndex = i;
-                    isFirst = false;
-                }
-                //since we previosly set lowest difference to a value we can further compare that value to the current total difference
-                if (totalDifference < lowestDifference) {
-                    lowestDifference = totalDifference;
-                    currentMatchIndex = i;
-                }
+
+
 
             }
+
+            console.log(friendsData[i].name + "total difference score: " + totalDifference);
+            //first time around, set set the first i(0) to the lowestDifference and current match index
+            if (isFirst) {
+                lowestDifference = totalDifference;
+                currentMatchIndex = i;
+                isFirst = false;
+            }
+            //since we previosly set lowest difference to a value we can further compare that value to the current total difference
+            if (totalDifference < lowestDifference) {
+                lowestDifference = totalDifference;
+                currentMatchIndex = i;
+            }
+
+
         }
+
+
+        console.log(currentMatchIndex);
         //we need to push the json to the array storage 
         friendsData.push(req.body);
         res.json(friendsData[currentMatchIndex]);
