@@ -37,7 +37,7 @@ module.exports = function (app) {
 
             }
 
-            console.log(friendsData[i].name + "total difference score: " + totalDifference);
+
             //first time around, set set the first i(0) to the lowestDifference and current match index
             if (isFirst) {
                 lowestDifference = totalDifference;
@@ -53,11 +53,7 @@ module.exports = function (app) {
 
         }
 
-
-        console.log(currentMatchIndex);
-        //we need to push the json to the array storage 
         friendsData.push(req.body);
         res.json(friendsData[currentMatchIndex]);
-        // console.log(friendsData);
     })
 }

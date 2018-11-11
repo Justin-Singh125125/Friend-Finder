@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>FriendFinder</title>
+    <title>Friend Finder</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -49,7 +49,19 @@
         text-align: center;
         background:  #5e5d5b;
     }
- 
+    #name-match{
+        color: black;
+        text-align: center;
+    }
+    #img-match{
+        margin: 0 auto;
+    }
+  
+
+#dark{
+    color: black;
+    text-align: center;
+}
 </style>
 
 <body class="fade">
@@ -205,19 +217,18 @@
     </div>
 
     <!-- Modal -->
-    <div id="results-modal" class="modal fade" role="dialog">
+    <div id="results" class="modal fade" role="dialog">
         <div class="modal-dialog">
 
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title"><strong>Best Match</strong></h2>
+                    <h2 id="dark" class="modal-title">Perfect Match!</h2>
                 </div>
                 <div class="modal-body">
-                    <h2 id="match-name"></h2>
-                    <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg"
-                        alt="">
+                    <h2 id="name-match"></h2>
+                    <img id="img-match" class="img-responsive" src="" style="max-height:250px;">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -284,13 +295,13 @@
                 // AJAX post the data to the friends API.
                 $.post("/api/friends", newUser, function (data) {
 
-                    console.log(data);
+
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                    $("#match-name").text(data.name);
-                    $("#match-img").attr("src", data.photo);
+                    $("#name-match").text(data.name);
+                    $("#img-match").attr("src", data.photo);
 
                     // Show the modal with the best match
-                    $("#results-modal").modal("toggle");
+                    $("#results").modal("toggle");
 
                 });
             }
