@@ -264,7 +264,7 @@
             }
             else {
                 // Created an object for the user"s data and just threw in the values 
-                var userData = {
+                var newUser = {
                     name: $("#name").val().trim(),
                     photo: $("#photo").val().trim(),
                     scores: [
@@ -282,8 +282,9 @@
                 };
 
                 // AJAX post the data to the friends API.
-                $.post("/api/friends", userData, function (data) {
+                $.post("/api/friends", newUser, function (data) {
 
+                    console.log(data);
                     // Grab the result from the AJAX post so that the best match's name and photo are displayed.
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
